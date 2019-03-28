@@ -1,7 +1,5 @@
 class JokesController < ApplicationController
   def index
-    joke = Joke.order('RANDOM()').first
-
-    render html: joke.body
+    @joke = Joke.order('RANDOM()').first
   end
 end

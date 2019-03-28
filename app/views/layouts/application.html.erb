@@ -4,10 +4,19 @@
     <title>App</title>
     <%= csrf_meta_tags %>
 
+    <%= javascript_include_tag "application" %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag "uw-style" %>
   </head>
 
   <body>
+
+    <%= render 'layouts/header' %>
+
+    <%= render 'layouts/menus' %>
+
     <%= yield %>
+
+    <%= render 'layouts/footer' %>
   </body>
 </html>
