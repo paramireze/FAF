@@ -4,7 +4,7 @@ Ruby rails app that uses docker-compose combined with Heroku for easy mode
 
 https://medium.com/firehydrant-io/developing-a-ruby-on-rails-app-with-docker-compose-d75b20334634
 
-set up the db 
+# set up the db 
 
 ```
 docker-compose run --rm web rails g model Joke body:text
@@ -12,7 +12,7 @@ docker-compose run --rm web rails g model Category name:text top_category:text s
 docker-compose run --rm web rails db:create db:migrate
 ```
 
-set up git
+# set up git
 ```
 git init
 git commit -m "first commit"
@@ -21,7 +21,7 @@ git push -u origin master
 
 ```
 
-set up heroku
+# set up heroku
 ```
 heroku create
 heroku container:login
@@ -32,3 +32,16 @@ heroku config:set RAILS_ENV=production SECRET_KEY_BASE=supersecret RAILS_LOG_TO_
 heroku run rails db:migrate
 heroku open
 ```
+
+# running tests
+
+set up the test database
+``` 
+docker-compose run --rm web rails db:create RAILS_ENV=test
+```
+
+run the test on category model
+```
+docker-compose run --rm web rails test test/models/category_test.rb
+```
+
