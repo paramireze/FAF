@@ -4,23 +4,18 @@
       <h1><%= @heading %></h1>
 
       <%= @body %>
+      <br />
       <table>
         <tr>
-          <td>Category</td>
-          <td>Sub category</td>
-          <td>Sub sub category</td>
+          <th>Category</th>
+          <th>Name</th>
         </tr>
-        <tr>
-          <td colspan="2">
-            Education
-          </td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>committees</td>
-          <td></td>
-        </tr>
+        <% @categories.each do |category| %>
+          <tr>
+            <td><%= category.top_category %></td>
+            <td><%= category.name %></td>
+          </tr>
+        <% end %>
       </table>
     </div>
   </div>

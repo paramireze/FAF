@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+valid:
+  name: Abstracts
+  top_category: Research
+  sub_category:
+  order: 1
+
+missingName:
+  name:
+  top_category: Research
+  sub_category:
+  order: 2
+
+missingOrder:
+  name: Abstracts
+  top_category: Research
+  sub_category:
+  order:
