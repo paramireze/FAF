@@ -8,7 +8,7 @@ set up the db
 
 ```
 docker-compose run --rm web rails g model Joke body:text
-docker-compose run --rm web rails g model Category title:text description:text
+docker-compose run --rm web rails g model Category name:text top_category:text sub_category:text order:integer 
 docker-compose run --rm web rails db:create db:migrate
 ```
 
