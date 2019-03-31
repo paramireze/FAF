@@ -14,5 +14,5 @@ Category:
 
 category_abstracts = Category.create([
  { name:'Abstracts', top_category:'Research', sub_category:nil, order:1},
- { name:'Published Peer-Reviewed Manuscripts', top_category:'Research', sub_category:nil, order:2}
+ { name:'Published Peer-Reviewed Manuscripts  ', top_category:'Research', sub_category:nil, order:2}
                                      ])
