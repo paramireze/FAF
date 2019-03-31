@@ -1,13 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyText
-  top_category: MyText
-  sub_category: MyText
+valid:
+  name: Abstracts
+  top_category: Research
+  sub_category:
   order: 1
 
-two:
-  name: MyText
-  top_category: MyText
-  sub_category: MyText
-  order: 1
+missingName:
+  name:
+  top_category: Research
+  sub_category:
+  order: 2
+
+missingOrder:
+  name: Abstracts
+  top_category: Research
+  sub_category:
+  order:
