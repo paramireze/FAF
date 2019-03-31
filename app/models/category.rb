@@ -1,6 +1,4 @@
 class Category < ApplicationRecord
-  validates :name, :presence => true
-  validates :top_category, :presence => true
-  validates :order, :presence => true
+  validates :name, :top_category, :order, :presence => true
   validates :order, numericality: { only_integer: true }
 end
