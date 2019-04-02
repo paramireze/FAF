@@ -22,4 +22,8 @@ class CategoryTest < ActiveSupport::TestCase
     refute @missingOrder.valid?, 'category is valid without it having an order number'
     assert_not_nil @missingOrder.errors[:order], 'no validation error for order present'
   end
+
+  test 'category has two questions' do
+    assert_equal 2, @valid.questions.size
+  end
 end
