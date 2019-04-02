@@ -1,15 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  category: valid
+valid_question:
+  category: valid_category
   text: MyText
   required: false
   order: 1
-  type: MyText
 
-two:
-  category: valid
-  text: MyText
+nil_text:
+  category: valid_category
+  text:
   required: false
   order: 1
-  type: MyText

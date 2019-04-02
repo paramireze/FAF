@@ -3,13 +3,13 @@ require 'test_helper'
 class CategoryTest < ActiveSupport::TestCase
 
   def setup
-    @valid = categories(:valid)
+    @valid_category = categories(:valid_category)
     @missingName = categories(:missingName)
     @missingOrder = categories(:missingOrder)
   end
 
   test 'valid category' do
-    assert @valid.valid?
+    assert @valid_category.valid?
   end
 
   test 'invalid category without name' do
@@ -24,6 +24,6 @@ class CategoryTest < ActiveSupport::TestCase
   end
 
   test 'category has two questions' do
-    assert_equal 2, @valid.questions.size
+    assert_equal 2, @valid_category.questions.size
   end
 end
