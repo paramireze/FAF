@@ -9,6 +9,7 @@ https://medium.com/firehydrant-io/developing-a-ruby-on-rails-app-with-docker-com
 ```
 docker-compose run --rm web rails g model Joke body:text
 docker-compose run --rm web rails g model Category name:text top_category:text sub_category:text order:integer 
+docker-compose run --rm web rails g model Question category:references  text:text required:boolean order:integer type:text
 docker-compose run --rm web rails db:create db:migrate
 ```
 
