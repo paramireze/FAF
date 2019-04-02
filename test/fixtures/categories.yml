@@ -1,6 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-valid:
+valid_category:
   name: Abstracts
   top_category: Research
   sub_category:
