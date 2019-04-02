@@ -11,3 +11,9 @@ nil_text:
   text:
   required: false
   order: 1
+
+question_missing_category:
+  category:
+  text: MyText
+  required: false
+  order: 1
