@@ -27,7 +27,7 @@ class QuestionTest < ActiveSupport::TestCase
   end
 
   test 'question is not required' do
-    assert @valid_question.required
+    assert !@valid_question.required
   end
 
 end
