@@ -9,10 +9,21 @@ Category:
   top_category:text
   sub_category:text
   order:integer
+
+"questions"
+    "category_id"
+    "text"
+    "required"
+    "order"
+    "question_type"
+    "created_at", null: false
+    "updated_at", null: false
+    t.index ["category_id"], name: "index_questions_on_category_id"
+  end
 =end
 
 
-category_abstracts = Category.create([
- { name:'Abstracts', top_category:'Research', sub_category:nil, order:1},
- { name:'Published Peer-Reviewed Manuscripts  ', top_category:'Research', sub_category:nil, order:2}
-                                     ])
+category_abstracts = Category.create([name:'Abstracts', top_category:'Research', sub_category:nil, order:1])
+category_published_peer_review = Category.create([name:'Published Peer-Reviewed Manuscripts  ', top_category:'Research', sub_category:nil, order:2])
+
+question_abstract_text = Question.create([category:category_abstracts.first, text:'abstracts text', required:true, order:1, question_type:'text area'])
