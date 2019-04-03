@@ -1,2 +1,0 @@
-class Joke < ApplicationRecord
-end
