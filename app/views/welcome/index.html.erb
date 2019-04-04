@@ -3,7 +3,7 @@
     <div class="uw-col uw-body">
       <h1><%= @heading %></h1>
 
-      <%= @body %>
+      <%= @body %><br/>
       <br />
       <table>
         <tr>
@@ -14,9 +14,16 @@
           <tr>
             <td><%= category.top_category %></td>
             <td><%= category.name %></td>
+            <td>
+              <% category.questions.each do |question| %>
+                  <%= question.text %><br/>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </table>
+      <br />
+      This is a production brought to you by <%= @paul.first_name %> <%= @paul.last_name %>
     </div>
   </div>
 </div>

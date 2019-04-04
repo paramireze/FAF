@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190401121056) do
+ActiveRecord::Schema.define(version: 20190404114736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,27 +19,44 @@ ActiveRecord::Schema.define(version: 20190401121056) do
     t.text "name"
     t.text "top_category"
     t.text "sub_category"
+    t.text "description"
     t.integer "order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "jokes", force: :cascade do |t|
-    t.text "body"
+  create_table "entries", force: :cascade do |t|
+    t.bigint "category_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_entries_on_category_id"
+    t.index ["user_id"], name: "index_entries_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|
     t.bigint "category_id"
     t.text "text"
+    t.text "helper_text"
     t.boolean "required"
     t.integer "order"
-    t.text "type"
+    t.text "question_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_questions_on_category_id"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.text "first_name"
+    t.text "last_name"
+    t.boolean "active"
+    t.text "email"
+    t.text "user_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "entries", "categories"
+  add_foreign_key "entries", "users"
   add_foreign_key "questions", "categories"
 end

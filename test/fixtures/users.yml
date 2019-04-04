@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+valid_user:
+  first_name: Paul
+  last_name: Ramirez
+  active: true
+  email: pramirez@uwhealth.org
+  user_name: per245
+invalid_user_missing_last_name:
+  first_name: Shariq
+  last_name:
+  active: true
+  email: skhan@uwhealth.org
+  user_name: SKK232
+invalid_user_missing_email:
+  first_name: Arseny
+  last_name: Semin
+  active: true
+  email:
+  user_name: ARS424
