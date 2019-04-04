@@ -19,13 +19,8 @@ ActiveRecord::Schema.define(version: 20190401121056) do
     t.text "name"
     t.text "top_category"
     t.text "sub_category"
+    t.text "description"
     t.integer "order"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "jokes", force: :cascade do |t|
-    t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -33,9 +28,10 @@ ActiveRecord::Schema.define(version: 20190401121056) do
   create_table "questions", force: :cascade do |t|
     t.bigint "category_id"
     t.text "text"
+    t.text "helper_text"
     t.boolean "required"
     t.integer "order"
-    t.text "type"
+    t.text "question_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_questions_on_category_id"
