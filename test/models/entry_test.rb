@@ -12,8 +12,8 @@ class EntryTest < ActiveSupport::TestCase
   end
 
   test 'entry is missing category' do
-    refute @invalid_entry.valid?, 'entry is valid without belonging to an entry'
-    assert_not_nil @invalid_entry.errors[:category], 'no validation error for an entry not belonging to an entry'
+    refute @invalid_entry.valid?, 'entry is valid without belonging to a category'
+    assert_not_nil @invalid_entry.errors[:category], 'no validation error for an entry not belonging to a category'
   end
 
 
