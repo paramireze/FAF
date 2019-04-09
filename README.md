@@ -40,11 +40,18 @@ heroku open
 ```
 docker-compose up web
 ```
+
+# migrate databae
+
+``` 
+docker-compose run --rm web rails db:migrate
+```
 # running tests
 
 set up the test database
 ``` 
 docker-compose run --rm web rails db:create RAILS_ENV=test
+docker-compose run --rm web rails db:migrate RAILS_ENV=test
 ```
 
 run the test on category model
