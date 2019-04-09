@@ -10,7 +10,8 @@ https://medium.com/firehydrant-io/developing-a-ruby-on-rails-app-with-docker-com
 docker-compose run --rm web rails g model Category name:text top_category:text sub_category:text order:integer 
 docker-compose run --rm web rails g model Question category:references  text:text required:boolean order:integer type:text
 docker-compose run --rm web rails g model User first_name:text last_name:text active:boolean email:text user_name:text
-docker-compose run --rm web rails g model Entry category:references user:references
+docker-compose run --rm web rails g model Entry entry:references question:references answer:text
+docker-compose run --rm web rails g model Entry_questions category:references question:references
 docker-compose run --rm web rails db:create db:migrate
 ```
 
@@ -35,15 +36,30 @@ heroku run rails db:migrate
 heroku open
 ```
 
+# start web server
+```
+docker-compose up web
+```
+
+# migrate databae
+
+``` 
+docker-compose run --rm web rails db:migrate
+```
 # running tests
 
 set up the test database
 ``` 
 docker-compose run --rm web rails db:create RAILS_ENV=test
+docker-compose run --rm web rails db:migrate RAILS_ENV=test
 ```
 
 run the test on category model
 ```
 docker-compose run --rm web rails test test/models/category_test.rb
 ```
+
+# Database & Models
+
+![ERD Diagram](./erd.png)
 

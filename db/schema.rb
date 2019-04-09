@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190404114736) do
+ActiveRecord::Schema.define(version: 20190408011851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20190404114736) do
     t.text "name"
     t.text "top_category"
     t.text "sub_category"
-    t.text "description"
     t.integer "order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -34,13 +33,21 @@ ActiveRecord::Schema.define(version: 20190404114736) do
     t.index ["user_id"], name: "index_entries_on_user_id"
   end
 
+  create_table "entry_questions", force: :cascade do |t|
+    t.bigint "entry_id"
+    t.bigint "question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["entry_id"], name: "index_entry_questions_on_entry_id"
+    t.index ["question_id"], name: "index_entry_questions_on_question_id"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.bigint "category_id"
     t.text "text"
-    t.text "helper_text"
     t.boolean "required"
     t.integer "order"
-    t.text "question_type"
+    t.text "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_questions_on_category_id"
@@ -58,5 +65,7 @@ ActiveRecord::Schema.define(version: 20190404114736) do
 
   add_foreign_key "entries", "categories"
   add_foreign_key "entries", "users"
+  add_foreign_key "entry_questions", "entries"
+  add_foreign_key "entry_questions", "questions"
   add_foreign_key "questions", "categories"
 end
